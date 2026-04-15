@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workana FULL — Talento especializado para equipos en crecimiento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #faf9f7;
+      --bg-secondary: #f0ece4;
+      --bg-dark: #1a1714;
+      --terracotta: #c96a3e;
+      --terracotta-hover: #a8562f;
+      --workana-blue: #0A52D9;
+      --text-dark: #1a1714;
+      --text-secondary: #6b635a;
+      --text-light: rgba(255,255,255,0.88);
+      --border: rgba(26,23,20,0.12);
+      --lavender: #DCB0E7;
+      --max-width: 1100px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-text {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .nav-badge {
+      background: var(--terracotta);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 100px;
+      line-height: 1;
+    }
+
+    .nav-cta {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-dark);
+      text-decoration: none;
+      padding: 9px 20px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+      background: rgba(201,106,62,0.04);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+      display: inline-block;
+      background: var(--terracotta);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-primary:hover {
+      background: var(--terracotta-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 28px;
+      border-radius: 8px;
+      border: 1.5px solid var(--text-dark);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-secondary:hover {
+      background: var(--text-dark);
+      color: #fff;
+    }
+
+    .btn-ghost-white {
+      display: inline-block;
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 28px;
+      border-radius: 8px;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-ghost-white:hover {
+      border-color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* ===== EYEBROW ===== */
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--bg-primary);
+      padding: 96px 24px 0;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-text .eyebrow {
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(36px, 4vw, 52px);
+      line-height: 1.12;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--terracotta);
+    }
+
+    .hero-p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-col {
+      position: relative;
+    }
+
+    .hero-image-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 48px rgba(26,23,20,0.14);
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-image-decoration {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: var(--terracotta);
+      border-radius: 50%;
+      opacity: 0.12;
+      z-index: -1;
+    }
+
+    /* ===== HERO PANEL ===== */
+    .hero-panel-wrap {
+      background: var(--bg-primary);
+      padding: 48px 24px 80px;
+    }
+
+    .hero-panel {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero-panel-card {
+      background: var(--bg-secondary);
+      border-left: 4px solid var(--terracotta);
+      border-radius: 0 16px 16px 0;
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .panel-left .panel-kicker {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+    }
+
+    .panel-left p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .panel-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .panel-metric {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .metric-num {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--terracotta);
+      padding-top: 2px;
+      min-width: 22px;
+    }
+
+    .metric-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ===== SECTION 2 ===== */
+    .section-2 {
+      background: var(--bg-secondary);
+      padding: 96px 24px;
+    }
+
+    .section-2-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-header {
+      max-width: 600px;
+      margin-bottom: 56px;
+    }
+
+    .section-h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(28px, 3.2vw, 42px);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .cards-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(26,23,20,0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 32px rgba(26,23,20,0.12);
+      transform: translateY(-2px);
+    }
+
+    .card-number {
+      width: 36px;
+      height: 36px;
+      background: var(--terracotta);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .card-body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    /* ===== SECTION 3 ===== */
+    .section-3 {
+      background: var(--bg-primary);
+      padding: 96px 24px;
+    }
+
+    .section-3-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .section-3-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(26,23,20,0.12);
+      aspect-ratio: 4/3;
+    }
+
+    .section-3-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-3-text .section-h2 {
+      margin-bottom: 20px;
+    }
+
+    .section-3-text p {
+      font-size: 15px;
+      line-height: 1.72;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .section-3-text p:last-of-type {
+      margin-bottom: 32px;
+    }
+
+    .proof-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .proof-card {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .proof-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      min-width: 80px;
+      padding-top: 1px;
+    }
+
+    .proof-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ===== SECTION 4 ===== */
+    .section-4 {
+      background: var(--bg-secondary);
+      padding: 96px 24px;
+    }
+
+    .section-4-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(26,23,20,0.08);
+      position: relative;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .step-card:hover {
+      box-shadow: 0 6px 32px rgba(26,23,20,0.12);
+      transform: translateY(-2px);
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      background: var(--terracotta);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .step-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 21px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .step-body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    /* ===== SECTION 5 ===== */
+    .section-5 {
+      background: var(--bg-primary);
+      padding: 96px 24px;
+    }
+
+    .section-5-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .fit-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .fit-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(26,23,20,0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .fit-card:hover {
+      box-shadow: 0 6px 32px rgba(26,23,20,0.12);
+      transform: translateY(-2px);
+    }
+
+    .fit-letter {
+      width: 40px;
+      height: 40px;
+      background: var(--terracotta);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .fit-title {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .fit-body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      position: relative;
+      background: var(--bg-dark);
+      padding: 120px 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      z-index: 0;
+    }
+
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,23,20,0.85) 0%, rgba(26,23,20,0.6) 100%);
+      z-index: 1;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .cta-section .eyebrow {
+      color: var(--terracotta);
+    }
+
+    .cta-h2 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.96);
+      margin-bottom: 22px;
+    }
+
+    .cta-p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 44px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 24px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: -0.02em;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.6;
+      max-width: 580px;
+      text-align: right;
+    }
+
+    /* ===== DIVIDER LINE ===== */
+    .section-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--terracotta);
+      margin-bottom: 24px;
+      opacity: 0.5;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-bottom: 0;
+      }
+
+      .hero-image-col {
+        order: -1;
+      }
+
+      .hero-image-wrap {
+        max-height: 320px;
+      }
+
+      .hero-panel-card {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .cards-grid-2x2 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-3-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fit-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-text {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      .hero {
+        padding: 64px 16px 0;
+      }
+
+      .hero-panel-card {
+        padding: 24px 20px;
+        border-radius: 0 12px 12px 0;
+      }
+
+      .cta-section {
+        padding: 80px 16px;
+      }
+
+      .section-2,
+      .section-3,
+      .section-4,
+      .section-5 {
+        padding: 72px 16px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-text">workana</span>
+        <span class="nav-badge">FULL</span>
+      </a>
+      <a
+        href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1"
+        class="nav-cta"
+        target="_blank"
+        rel="noopener"
+      >
+        Hablar con un especialista
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="eyebrow">Talento externo para equipos en crecimiento</div>
+        <h1 class="hero-h1">
+          Profesionalice el acceso a <em>talento especializado</em> sin sumar fricción operativa
+        </h1>
+        <p class="hero-p">
+          Para compañías que ya trabajan con equipos extendidos, proyectos recurrentes o necesidades técnicas críticas, Workana FULL ayuda a activar capacidad validada con mayor control, velocidad y foco ejecutivo.
+        </p>
+        <div class="hero-actions">
+          <a
+            href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1"
+            class="btn-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            Evaluar Workana FULL
+          </a>
+          <a href="#modelo" class="btn-secondary">Ver el modelo</a>
+        </div>
+      </div>
+
+      <div class="hero-image-col">
+        <div class="hero-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+            alt="Equipo profesional trabajando"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-image-decoration"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO PANEL -->
+  <div class="hero-panel-wrap">
+    <div class="hero-panel">
+      <div class="hero-panel-card">
+        <div class="panel-left">
+          <div class="panel-kicker">Evolución natural</div>
+          <p>
+            Cuando la demanda de negocio avanza más rápido que la estructura interna, el desafío no es encontrar más personas. Es acceder a los perfiles correctos con validación, coordinación y previsibilidad.
+          </p>
+        </div>
+        <div class="panel-metrics">
+          <div class="panel-metric">
+            <span class="metric-num">01</span>
+            <span class="metric-text">Curaduría de perfiles alineados al objetivo.</span>
+          </div>
+          <div class="panel-metric">
+            <span class="metric-num">02</span>
+            <span class="metric-text">Menos carga operativa para líderes internos.</span>
+          </div>
+          <div class="panel-metric">
+            <span class="metric-num">03</span>
+            <span class="metric-text">Mayor velocidad para activar capacidad externa.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: EL MODELO -->
+  <section class="section-2" id="modelo">
+    <div class="section-2-inner">
+      <div class="section-header">
+        <div class="eyebrow">El punto de madurez</div>
+        <div class="section-divider"></div>
+        <h2 class="section-h2">
+          El crecimiento exige un modelo más ordenado para contratar talento externo
+        </h2>
+        <p class="section-intro">
+          Muchas organizaciones ya incorporan especialistas externos. El salto está en pasar de una gestión dispersa a un sistema más profesional, con acompañamiento y criterios claros desde el inicio.
+        </p>
+      </div>
+
+      <div class="cards-grid-2x2">
+        <div class="card">
+          <div class="card-number">1</div>
+          <div class="card-title">Demanda especializada</div>
+          <p class="card-body">Los equipos necesitan capacidades técnicas, creativas o digitales que no siempre conviene incorporar de forma permanente.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">2</div>
+          <div class="card-title">Tiempo ejecutivo limitado</div>
+          <p class="card-body">Buscar, filtrar y validar perfiles consume foco que debería estar puesto en decisiones de negocio.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">3</div>
+          <div class="card-title">Mayor necesidad de control</div>
+          <p class="card-body">La flexibilidad solo funciona cuando existe visibilidad sobre criterios, avance y calidad de selección.</p>
+        </div>
+        <div class="card">
+          <div class="card-number">4</div>
+          <div class="card-title">Escalamiento sin overhead</div>
+          <p class="card-body">El objetivo es sumar capacidad sin crear estructuras innecesarias ni procesos pesados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: TALENTO PRE-VALIDADO -->
+  <section class="section-3">
+    <div class="section-3-inner">
+      <div class="section-3-image">
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+          alt="Profesional trabajando con tecnología"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="section-3-text">
+        <div class="eyebrow">Workana FULL</div>
+        <div class="section-divider"></div>
+        <h2 class="section-h2">
+          Una forma más madura de activar talento pre-validado
+        </h2>
+        <p>Workana FULL está diseñado para empresas que ya entienden el valor del trabajo externo y necesitan convertirlo en una operación más confiable.</p>
+        <p>El modelo combina acceso a talento pre-validado, acompañamiento en la selección y una dinámica más clara para avanzar con perfiles alineados a los requerimientos del negocio.</p>
+        <p>FULL no introduce complejidad. Ordena una práctica que muchas empresas ya tienen en marcha y la eleva a un estándar más ejecutivo.</p>
+
+        <div class="proof-cards">
+          <div class="proof-card">
+            <span class="proof-label">Curaduría</span>
+            <span class="proof-desc">Perfiles revisados con foco en ajuste técnico, contexto y disponibilidad.</span>
+          </div>
+          <div class="proof-card">
+            <span class="proof-label">Velocidad</span>
+            <span class="proof-desc">Activación más ágil para proyectos, necesidades recurrentes y equipos extendidos.</span>
+          </div>
+          <div class="proof-card">
+            <span class="proof-label">Foco</span>
+            <span class="proof-desc">Menos esfuerzo operativo para líderes que necesitan avanzar con criterio.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CÓMO FUNCIONA -->
+  <section class="section-4">
+    <div class="section-4-inner">
+      <div class="section-header">
+        <div class="eyebrow">Cómo funciona</div>
+        <div class="section-divider"></div>
+        <h2 class="section-h2">
+          Un proceso pensado para decisiones de negocio, no para búsquedas interminables
+        </h2>
+        <p class="section-intro">
+          Cada paso reduce fricción: se entiende la necesidad, se curan perfiles y se avanza con mayor claridad hacia la contratación adecuada.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-title">Diagnóstico de necesidad</div>
+          <p class="step-body">Se identifica el objetivo, el tipo de perfil, el alcance del trabajo y el nivel de seniority requerido.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-title">Selección orientada</div>
+          <p class="step-body">Se presentan especialistas con mayor afinidad al contexto, reduciendo el ruido propio de una búsqueda abierta.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-title">Activación con control</div>
+          <p class="step-body">La empresa conserva flexibilidad, mientras suma una capa de orden y acompañamiento para avanzar con confianza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CUÁNDO TIENE SENTIDO -->
+  <section class="section-5">
+    <div class="section-5-inner">
+      <div class="section-header">
+        <div class="eyebrow">Cuándo tiene sentido</div>
+        <div class="section-divider"></div>
+        <h2 class="section-h2">
+          FULL encaja cuando la empresa ya opera con una necesidad real de escalamiento
+        </h2>
+        <p class="section-intro">
+          La conversación es más valiosa cuando existe demanda concreta, prioridades claras y necesidad de sumar capacidades sin crear fricción interna.
+        </p>
+      </div>
+
+      <div class="fit-cards">
+        <div class="fit-card">
+          <div class="fit-letter">A</div>
+          <div class="fit-title">Equipos con carga creciente</div>
+          <p class="fit-body">Cuando el equipo interno necesita avanzar sin saturarse ni postergar iniciativas críticas.</p>
+        </div>
+        <div class="fit-card">
+          <div class="fit-letter">B</div>
+          <div class="fit-title">Proyectos con requerimientos específicos</div>
+          <p class="fit-body">Cuando se necesitan perfiles técnicos, digitales o creativos por un período o alcance definido.</p>
+        </div>
+        <div class="fit-card">
+          <div class="fit-letter">C</div>
+          <div class="fit-title">Organizaciones que ya usan talento remoto</div>
+          <p class="fit-body">Cuando la empresa busca profesionalizar su relación con un equipo remoto o externo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <img
+      class="cta-bg-img"
+      src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=80"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+    />
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <div class="eyebrow">Siguiente paso</div>
+      <h2 class="cta-h2">
+        Evalúe si Workana FULL es el modelo adecuado para su equipo
+      </h2>
+      <p class="cta-p">
+        Si su organización ya necesita sumar capacidad especializada con mayor previsibilidad, este es el momento de revisar cómo Workana FULL puede ayudar a profesionalizar el acceso a talento externo.
+      </p>
+      <div class="cta-actions">
+        <a
+          href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Hablar con un especialista
+        </a>
+        <a
+          href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1"
+          class="btn-ghost-white"
+          target="_blank"
+          rel="noopener"
+        >
+          Solicitar evaluación
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">workana</span>
+      <p class="footer-text">
+        &copy; 2026 Workana &middot; Este documento fue creado por Workana FULL como material educativo-estratégico para líderes y responsables de equipos.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

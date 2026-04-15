@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workana FULL | Talento externo para equipos en crecimiento</title>
+  <style>
+    :root {
+      --ink: #141413;
+      --terracotta: #c96442;
+      --coral: #d97757;
+      --parchment: #f5f4ed;
+      --ivory: #faf9f5;
+      --sand: #e8e6dc;
+      --text: #4d4c48;
+      --text-soft: #5e5d59;
+      --border: #f0eee6;
+      --border-strong: #e8e6dc;
+      --shadow: 0 12px 34px rgba(20, 20, 19, 0.08);
+      --shadow-soft: 0 8px 22px rgba(20, 20, 19, 0.06);
+      --radius: 8px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(245, 244, 237, 0.92), rgba(245, 244, 237, 0.92)),
+        radial-gradient(circle at top left, rgba(201, 100, 66, 0.08), transparent 35%),
+        linear-gradient(180deg, #f8f7f2 0%, #f4f2ea 100%);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      padding: 24px 0 72px;
+      background:
+        linear-gradient(115deg, rgba(20, 20, 19, 0.92) 0%, rgba(20, 20, 19, 0.75) 47%, rgba(20, 20, 19, 0.36) 100%),
+        url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: var(--ivory);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(20, 20, 19, 0.18) 0%, transparent 25%, transparent 75%, rgba(20, 20, 19, 0.12) 100%);
+      pointer-events: none;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 8px 0 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand-name {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .brand-full {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid rgba(250, 249, 245, 0.28);
+      border-radius: 8px;
+      background: rgba(250, 249, 245, 0.08);
+      color: var(--ivory);
+      font-size: 12px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .toplink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid rgba(250, 249, 245, 0.24);
+      border-radius: 8px;
+      background: rgba(250, 249, 245, 0.08);
+      color: var(--ivory);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .toplink:hover,
+    .button:hover,
+    .text-link:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 36px;
+      align-items: end;
+      padding: 28px 0 8px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: #f0c7b6;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.08;
+    }
+
+    h1 {
+      max-width: 10ch;
+      font-size: 70px;
+    }
+
+    h2 {
+      font-size: 42px;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin: 22px 0 0;
+      color: rgba(250, 249, 245, 0.84);
+      font-size: 19px;
+    }
+
+    .linked-keyword {
+      color: #ffd4c4;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      font-weight: 700;
+    }
+
+    .hero-actions,
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      background: var(--terracotta);
+      color: var(--ivory);
+      box-shadow: 0 10px 22px rgba(201, 100, 66, 0.26);
+    }
+
+    .button-primary:hover {
+      background: #b95636;
+    }
+
+    .button-secondary {
+      background: rgba(250, 249, 245, 0.08);
+      color: var(--ivory);
+      border-color: rgba(250, 249, 245, 0.28);
+    }
+
+    .button-secondary:hover {
+      border-color: rgba(250, 249, 245, 0.5);
+      background: rgba(250, 249, 245, 0.12);
+    }
+
+    .hero-panel {
+      border: 1px solid rgba(250, 249, 245, 0.18);
+      border-radius: var(--radius);
+      background: rgba(250, 249, 245, 0.08);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-top {
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid rgba(250, 249, 245, 0.14);
+    }
+
+    .panel-kicker {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: #f0c7b6;
+    }
+
+    .panel-top p {
+      margin: 0;
+      color: rgba(250, 249, 245, 0.86);
+      font-size: 17px;
+    }
+
+    .panel-image {
+      aspect-ratio: 16 / 9;
+      background:
+        linear-gradient(180deg, rgba(20, 20, 19, 0.08), rgba(20, 20, 19, 0.38)),
+        url("https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80") center/cover;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 18px;
+    }
+
+    .metric {
+      min-height: 118px;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(250, 249, 245, 0.16);
+      background: rgba(20, 20, 19, 0.24);
+    }
+
+    .metric strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1;
+      color: #ffd4c4;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(250, 249, 245, 0.78);
+      font-size: 13px;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .cream {
+      background: var(--ivory);
+      color: var(--ink);
+    }
+
+    .dark {
+      background: #171716;
+      color: var(--ivory);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .dark .section-intro {
+      color: rgba(250, 249, 245, 0.74);
+    }
+
+    .eyebrow-dark {
+      color: #efb29a;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      min-height: 230px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-strong);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .dark .card {
+      border-color: rgba(250, 249, 245, 0.14);
+      background: rgba(250, 249, 245, 0.04);
+      box-shadow: none;
+    }
+
+    .card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      color: var(--ivory);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      line-height: 1.22;
+    }
+
+    .card p {
+      margin: 14px 0 0;
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    .dark .card p {
+      color: rgba(250, 249, 245, 0.74);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .visual {
+      min-height: 540px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow);
+      background: var(--sand);
+    }
+
+    .visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .copy-block p {
+      margin: 0 0 18px;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .copy-block .eyebrow {
+      color: #a85a3f;
+    }
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .proof {
+      min-height: 138px;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--ivory);
+    }
+
+    .proof strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: var(--terracotta);
+    }
+
+    .proof p {
+      margin: 10px 0 0;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .process-grid,
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .cta {
+      padding: 84px 0 92px;
+      background:
+        linear-gradient(115deg, rgba(20, 20, 19, 0.9), rgba(20, 20, 19, 0.72)),
+        url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1800&q=80") center/cover;
+      color: var(--ivory);
+    }
+
+    .cta-box {
+      width: min(900px, 100%);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-box p {
+      max-width: 780px;
+      margin: 22px auto 0;
+      color: rgba(250, 249, 245, 0.8);
+      font-size: 18px;
+    }
+
+    .cta-box .eyebrow {
+      color: #f0c7b6;
+    }
+
+    .footer {
+      padding: 28px 0 36px;
+      background: #111110;
+      color: rgba(250, 249, 245, 0.72);
+      border-top: 1px solid rgba(250, 249, 245, 0.12);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      color: rgba(250, 249, 245, 0.36);
+      font-weight: 700;
+    }
+
+    .footer-copy {
+      margin: 0;
+      text-align: right;
+      font-size: 13px;
+    }
+
+    .text-link {
+      color: var(--terracotta);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 58px;
+      }
+
+      h2 {
+        font-size: 36px;
+      }
+
+      .hero-grid,
+      .section-header,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-grid,
+      .fit-grid,
+      .proof-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .visual {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .wrap {
+        width: min(100% - 24px, 1180px);
+      }
+
+      .hero {
+        padding: 18px 0 56px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .hero-copy,
+      .section-intro,
+      .copy-block p,
+      .cta-box p {
+        font-size: 16px;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .metric-row,
+      .card-grid,
+      .process-grid,
+      .fit-grid,
+      .proof-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .cta {
+        padding: 68px 0 72px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-copy {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <header class="topbar">
+          <div class="brand" aria-label="Workana FULL">
+            <span class="brand-name">workana</span>
+            <span class="brand-full">FULL</span>
+          </div>
+          <a class="toplink" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">Hablar con un especialista</a>
+        </header>
+
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Talento externo para equipos en crecimiento</p>
+            <h1 id="hero-title">Profesionalice el acceso a talento especializado sin sumar fricción operativa</h1>
+            <p class="hero-copy">
+              Para compañías que ya trabajan con equipos extendidos, proyectos recurrentes o necesidades técnicas críticas,
+              <a class="linked-keyword" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">Workana FULL</a>
+              ayuda a activar capacidad validada con mayor control, velocidad y foco ejecutivo.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">Evaluar Workana FULL</a>
+              <a class="button button-secondary" href="#modelo">Ver el modelo</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel" aria-label="Resumen estratégico">
+            <div class="panel-top">
+              <p class="panel-kicker">Evolución natural</p>
+              <p>Cuando la demanda de negocio avanza más rápido que la estructura interna, el desafío no es encontrar más personas. Es acceder a los perfiles correctos con validación, coordinación y previsibilidad.</p>
+            </div>
+            <div class="panel-image" role="img" aria-label="Equipo profesional coordinando trabajo digital"></div>
+            <div class="metric-row">
+              <div class="metric">
+                <strong>01</strong>
+                <span>Curaduría de perfiles alineados al objetivo.</span>
+              </div>
+              <div class="metric">
+                <strong>02</strong>
+                <span>Menos carga operativa para líderes internos.</span>
+              </div>
+              <div class="metric">
+                <strong>03</strong>
+                <span>Mayor velocidad para activar capacidad externa.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cream" id="modelo">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">El punto de madurez</p>
+            <h2>El crecimiento exige un modelo más ordenado para contratar talento externo</h2>
+          </div>
+          <p class="section-intro">Muchas organizaciones ya incorporan especialistas externos. El salto está en pasar de una gestión dispersa a un sistema más profesional, con acompañamiento y criterios claros desde el inicio.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <span>1</span>
+            <h3>Demanda especializada</h3>
+            <p>Los equipos necesitan capacidades técnicas, creativas o digitales que no siempre conviene incorporar de forma permanente.</p>
+          </article>
+          <article class="card">
+            <span>2</span>
+            <h3>Tiempo ejecutivo limitado</h3>
+            <p>Buscar, filtrar y validar perfiles consume foco que debería estar puesto en decisiones de negocio.</p>
+          </article>
+          <article class="card">
+            <span>3</span>
+            <h3>Mayor necesidad de control</h3>
+            <p>La flexibilidad solo funciona cuando existe visibilidad sobre criterios, avance y calidad de selección.</p>
+          </article>
+          <article class="card">
+            <span>4</span>
+            <h3>Escalamiento sin overhead</h3>
+            <p>El objetivo es sumar capacidad sin crear estructuras innecesarias ni procesos pesados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="wrap split">
+        <div class="visual">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80" alt="Equipo de trabajo en un entorno profesional" />
+        </div>
+        <div class="copy-block">
+          <p class="eyebrow eyebrow-dark">Workana FULL</p>
+          <h2>Una forma más madura de activar talento pre-validado</h2>
+          <p><a class="linked-keyword" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">Workana FULL</a> está diseñado para empresas que ya entienden el valor del trabajo externo y necesitan convertirlo en una operación más confiable.</p>
+          <p>El modelo combina acceso a <a class="linked-keyword" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">talento pre-validado</a>, acompañamiento en la selección y una dinámica más clara para avanzar con perfiles alineados a los requerimientos del negocio.</p>
+          <p>FULL no introduce complejidad. Ordena una práctica que muchas empresas ya tienen en marcha y la eleva a un estándar más ejecutivo.</p>
+
+          <div class="proof-strip">
+            <div class="proof">
+              <strong>Curaduría</strong>
+              <p>Perfiles revisados con foco en ajuste técnico, contexto y disponibilidad.</p>
+            </div>
+            <div class="proof">
+              <strong>Velocidad</strong>
+              <p>Activación más ágil para proyectos, necesidades recurrentes y equipos extendidos.</p>
+            </div>
+            <div class="proof">
+              <strong>Foco</strong>
+              <p>Menos esfuerzo operativo para líderes que necesitan avanzar con criterio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow eyebrow-dark">Cómo funciona</p>
+            <h2>Un proceso pensado para decisiones de negocio, no para búsquedas interminables</h2>
+          </div>
+          <p class="section-intro">Cada paso reduce fricción: se entiende la necesidad, se curan perfiles y se avanza con mayor claridad hacia la contratación adecuada.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="card">
+            <span>1</span>
+            <h3>Diagnóstico de necesidad</h3>
+            <p>Se identifica el objetivo, el tipo de perfil, el alcance del trabajo y el nivel de seniority requerido.</p>
+          </article>
+          <article class="card">
+            <span>2</span>
+            <h3>Selección orientada</h3>
+            <p>Se presentan especialistas con mayor afinidad al contexto, reduciendo el ruido propio de una búsqueda abierta.</p>
+          </article>
+          <article class="card">
+            <span>3</span>
+            <h3>Activación con control</h3>
+            <p>La empresa conserva flexibilidad, mientras suma una capa de orden y acompañamiento para avanzar con confianza.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cream">
+      <div class="wrap">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Cuándo tiene sentido</p>
+            <h2>FULL encaja cuando la empresa ya opera con una necesidad real de escalamiento</h2>
+          </div>
+          <p class="section-intro">La conversación es más valiosa cuando existe demanda concreta, prioridades claras y necesidad de sumar capacidades sin crear fricción interna.</p>
+        </div>
+
+        <div class="fit-grid">
+          <article class="card">
+            <span>A</span>
+            <h3>Equipos con carga creciente</h3>
+            <p>Cuando el equipo interno necesita avanzar sin saturarse ni postergar iniciativas críticas.</p>
+          </article>
+          <article class="card">
+            <span>B</span>
+            <h3>Proyectos con requerimientos específicos</h3>
+            <p>Cuando se necesitan perfiles técnicos, digitales o creativos por un período o alcance definido.</p>
+          </article>
+          <article class="card">
+            <span>C</span>
+            <h3>Organizaciones que ya usan talento remoto</h3>
+            <p>Cuando la empresa busca profesionalizar su relación con un <a class="linked-keyword" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">equipo remoto</a> o externo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap cta-box">
+        <p class="eyebrow">Siguiente paso</p>
+        <h2>Evalúe si Workana FULL es el modelo adecuado para su equipo</h2>
+        <p>Si su organización ya necesita sumar capacidad especializada con mayor previsibilidad, este es el momento de revisar cómo
+          <a class="linked-keyword" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">Workana FULL</a>
+          puede ayudar a profesionalizar el acceso a talento externo.
+        </p>
+        <div class="cta-actions">
+          <a class="button button-primary" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">Hablar con un especialista</a>
+          <a class="button button-secondary" href="https://full.workana.com/es?utm_source=landing&utm_medium=web&utm_campaign=workana-full-tier1">Solicitar evaluación</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span>workana</span>
+        <span>FULL</span>
+      </div>
+      <p class="footer-copy">© 2026 Workana · Este documento fue creado por Workana FULL como material educativo-estratégico para líderes y responsables de equipos.</p>
+    </div>
+  </footer>
+</body>
+</html>
