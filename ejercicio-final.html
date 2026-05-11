@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Final · Comunicación Digital e Interactiva · UCA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #1D1D1B;
+      --navy:     #002D72;
+      --sky:      #5CA5FF;
+      --lavender: #DCB0E7;
+      --cream:    #E8E8CA;
+      --white:    #FFFFFF;
+      --gradient: linear-gradient(135deg, #0A78FF, #DCB0E7);
+      --mono:     'IBM Plex Mono', monospace;
+      --sans:     'Poppins', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .section { padding: 80px 24px; }
+
+    .inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    /* ── Typography ── */
+    .eyebrow {
+      display: block;
+      margin: 0 0 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--lavender);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: var(--mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1.05;
+    }
+
+    h1 { font-size: clamp(38px, 6vw, 76px); }
+    h2 { font-size: clamp(28px, 4vw, 50px); }
+    h3 { font-size: 15px; letter-spacing: 0.03em; }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 24px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--sky);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: #0A52D9; }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.30);
+      color: var(--white);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--lavender);
+      color: var(--lavender);
+    }
+
+    /* ── Backgrounds ── */
+    .bg-dark  { background: var(--bg); }
+    .bg-navy  { background: var(--navy); }
+    .bg-cream { background: var(--cream); color: var(--bg); }
+
+    /* ── Cards ── */
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .card h3 { color: var(--white); margin-bottom: 10px; }
+    .card p  { margin: 0; font-size: 15px; color: rgba(255,255,255,0.74); line-height: 1.65; }
+
+    /* ── Grid helpers ── */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 28px 24px 80px;
+    }
+
+    .badge-uca {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 14px;
+      border-radius: 8px;
+      background: var(--lavender);
+      color: var(--bg);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-title {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .nav-prof {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: rgba(255,255,255,0.52);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg);
+      padding: 0 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 32px solid rgba(220,176,231,0.14);
+      border-radius: 50%;
+      right: -160px;
+      bottom: -120px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-body {
+      max-width: 760px;
+      margin: 24px 0 0;
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.05);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.74);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Section intros ── */
+    .section-intro {
+      max-width: 680px;
+      margin: 18px 0 44px;
+      font-size: 17px;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .section-intro.dark-text {
+      color: rgba(29,29,27,0.72);
+    }
+
+    /* ── Step cards ── */
+    .step-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 8px;
+      padding: 28px 24px;
+    }
+
+    .step-num {
+      display: block;
+      font-family: var(--mono);
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .step-card h3 {
+      font-size: 15px;
+      color: var(--white);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .step-card p {
+      margin: 0;
+      font-size: 15px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.65;
+    }
+
+    /* ── Deliverable cards ── */
+    .del-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--sky);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .del-card h3 {
+      font-size: 15px;
+      color: var(--bg);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .del-card p {
+      margin: 0;
+      font-size: 15px;
+      color: rgba(29,29,27,0.68);
+      line-height: 1.65;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid rgba(255,255,255,0.09);
+      padding: 28px 24px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,0.40);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-bottom: 52px;
+        gap: 10px;
+      }
+      .nav-title { text-align: center; }
+      .nav-prof   { text-align: center; }
+
+      .grid-4 { grid-template-columns: 1fr; }
+      .hero::after { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .section { padding: 60px 20px; }
+      h1 { font-size: clamp(32px, 10vw, 48px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════
+       NAV
+  ══════════════════════════════════ -->
+  <section class="bg-dark">
+    <nav>
+      <span class="badge-uca">UCA</span>
+      <span class="nav-title">Comunicación Digital e Interactiva</span>
+      <span class="nav-prof">Diego Boni</span>
+    </nav>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <span class="eyebrow">EJERCICIO FINAL · 2026</span>
+
+      <h1 class="gradient-text">Creá tu propia<br>landing page con<br>Inteligencia Artificial</h1>
+
+      <p class="hero-body">
+        El ejercicio integra todo lo visto en la cursada: estrategia de contenido, copywriting con IA y producción visual. El resultado es una landing page real, publicada en la web.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#consigna" class="btn btn-primary">Ver consigna</a>
+      </div>
+
+      <div class="pills">
+        <span class="pill">1 brief estratégico</span>
+        <span class="pill">3 versiones visuales</span>
+        <span class="pill">Publicada en la web</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       EL EJERCICIO
+  ══════════════════════════════════ -->
+  <section class="section bg-navy" id="consigna">
+    <div class="inner">
+
+      <span class="eyebrow">LA PROPUESTA</span>
+      <h2>Diseñá la landing page<br>de tu consultora</h2>
+
+      <p class="section-intro">
+        Cada estudiante elige una consultora de Marketing, RRHH o comunicación — real o imaginaria — y crea una landing page completa usando IA como herramienta de producción.
+      </p>
+
+      <div class="grid-3">
+
+        <div class="card">
+          <h3>Brief</h3>
+          <p>Definís el servicio, el público y el tono. Esto guía a la IA para generar contenido coherente.</p>
+        </div>
+
+        <div class="card">
+          <h3>Copy con IA</h3>
+          <p>Usás una herramienta de IA para generar la estructura completa: headlines, secciones y CTAs.</p>
+        </div>
+
+        <div class="card">
+          <h3>3 estilos visuales</h3>
+          <p>Aplicás tres identidades visuales distintas al mismo contenido. Cada versión tiene su propia personalidad.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       PASOS
+  ══════════════════════════════════ -->
+  <section class="section bg-dark">
+    <div class="inner">
+
+      <span class="eyebrow">CÓMO HACERLO</span>
+      <h2>El proceso, paso a paso</h2>
+
+      <p class="section-intro">
+        Seguí este flujo de trabajo para construir tu landing de principio a fin.
+      </p>
+
+      <div class="grid-4">
+
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>Elegí tu consultora</h3>
+          <p>Puede ser real o ficticia. Definí el nombre, el servicio principal y el público al que apunta.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>Escribí el brief</h3>
+          <p>Redactá un documento breve con: qué ofrece, a quién le habla, cuál es el tono y qué acción querés que tome el visitante.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Generá con IA</h3>
+          <p>Compartí el brief con una herramienta de IA y pedile que genere la landing completa. Editá y ajustá el resultado.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">04</span>
+          <h3>Publicá las 3 versiones</h3>
+          <p>Subí los tres archivos HTML a la plataforma de hosting que prefieras y compartí las URLs.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       ENTREGABLES
+  ══════════════════════════════════ -->
+  <section class="section bg-cream">
+    <div class="inner">
+
+      <span class="eyebrow" style="color: var(--navy);">QUÉ ENTREGAN</span>
+      <h2>4 entregables</h2>
+
+      <p class="section-intro dark-text">
+        Todo debe estar publicado y accesible desde una URL. No se aceptan archivos locales ni capturas de pantalla.
+      </p>
+
+      <div class="grid-4">
+
+        <div class="del-card">
+          <div class="check">✓</div>
+          <h3>Brief</h3>
+          <p>El documento estratégico de tu consultora. Puede ser un Google Doc o un archivo de texto.</p>
+        </div>
+
+        <div class="del-card">
+          <div class="check">✓</div>
+          <h3>Landing principal</h3>
+          <p>La versión base en HTML con el copy completo. Publicada y accesible desde una URL.</p>
+        </div>
+
+        <div class="del-card">
+          <div class="check">✓</div>
+          <h3>3 versiones visuales</h3>
+          <p>Tres archivos HTML con el mismo contenido pero estilos visuales distintos. Las tres publicadas.</p>
+        </div>
+
+        <div class="del-card">
+          <div class="check">✓</div>
+          <h3>Reflexión</h3>
+          <p>Un párrafo corto (150–200 palabras) sobre el proceso: qué decidiste, qué cambiarías y qué aprendiste.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       FOOTER
+  ══════════════════════════════════ -->
+  <footer>
+    UCA &middot; Comunicación Digital e Interactiva &middot; Diego Boni &middot; &copy; 2026
+  </footer>
+
+</body>
+</html>
